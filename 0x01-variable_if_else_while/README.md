@@ -1,0 +1,1 @@
+Task 0 Positive anything is better than negative nothing, Task 1 The last digit, Task 2 I sometimes suffer from insomnia, Task 3 AlphABET, Task 4 when i was having the alphabet soup, Task 5 Numbers, Task 6 Numberz, Task 7 Smile in the mirror, Task 8 Hexadecimal, Task 9 Patience, persistence and perspiration
