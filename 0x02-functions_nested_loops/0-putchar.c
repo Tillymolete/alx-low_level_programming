@@ -1,6 +1,6 @@
 #include "main.h"
-/*
- * main - This should print the word _putchar
+/**
+ * main - Entry point
  * Return: 0
  */
 int main(void)
