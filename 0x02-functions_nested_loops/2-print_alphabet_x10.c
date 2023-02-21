@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - Print the alphabet 10 times- Make alphabet x10
+ * main - Print the alphabet 10 times- print_alphabet_x10
  *
  * Return: void
  */
@@ -9,7 +9,7 @@
 void print_alphabet_x10(void)
 {
 	char ch;
-	int i= 0;
+	int i = 0;
 
 	while (i <= 9)
 	{
@@ -23,4 +23,3 @@ void print_alphabet_x10(void)
 		i++;
 	}
 }
-	
