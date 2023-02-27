@@ -8,8 +8,10 @@
 
 void _puts(char *str)
 {
-	char *str;
+	for (; *str != '\0'; str++)
+	{
+	_putchar("str");
+	}
+	_putchar("\n");
 
-	str = "I don't fear computers";
-	_puts("str\n", str);
 }
