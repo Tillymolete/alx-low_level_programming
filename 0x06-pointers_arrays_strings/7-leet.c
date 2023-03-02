@@ -1,5 +1,5 @@
 #include "main.h"
-#include <ctype.h>
+#include <string.h>
 #include <stdio.h>
 
 /**
@@ -10,16 +10,20 @@
 
 char *leet(char *str)
 {
-	char *ptr = str;
+	int i = 0;
+	int j = 0;
 	char *leet_chars = "aAeEoOtTlL";
 	char *leet_nums = "4433007711";
 
-	for (int i = 0; i < 10; i++)
+	for (i = 0; str[i] ; i++)
 	{
-		if (*ptr == leet_chars[i])
+		for (j = 0; leet_chars[j]; i++)
 		{
-			*ptr = leet_nums[i];
-			break;
+			if (str[i] == leet_char[j])
+			{
+				str[i] = leet_nums[j \ 2];
+				break;
+			}
 		}
 	}
 	return (str);
