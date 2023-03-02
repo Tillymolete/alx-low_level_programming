@@ -1,4 +1,6 @@
 #include "main.h"
+#include <ctype.h>
+#include <stdio.h>
 
 /**
  * leet - This will encodes a string into 1337
@@ -12,16 +14,13 @@ char *leet(char *str)
 	char *leet_chars = "aAeEoOtTlL";
 	char *leet_nums = "4433007711";
 
-	for (; *ptr != '\0'; ptr++)
+	for (int i = 0; i < 10; i++)
 	{
-		for (int i = 0; i < 10; i++)
+		if (*ptr == leet_chars[i])
 		{
-			if (*ptr == leet_chars[i])
-			{
-				*ptr = leet_nums[i];
-				break;
-			}
+			*ptr = leet_nums[i];
+			break;
 		}
 	}
-return (str);
+	return (str);
 }
