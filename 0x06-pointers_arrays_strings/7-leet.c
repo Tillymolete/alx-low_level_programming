@@ -9,21 +9,26 @@
 
 char *leet(char *str)
 {
-	char *leet_chars = "aAeEoOtTlL";
-	char *lett_nums = "4433007711";
-	int i = 0;
-	int j = 0;
+	int a = 0, b = 0, l = 5;
+	char r[5] = {'A', 'E', 'O', 'T', 'L'};
+	char n[5] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; str[i]; i++)
+	while (str[a])
 	{
-		for (j = 0; leet_chars[j]; j++)
+		b = 0;
+
+		while (b < l)
 		{
-			if (str[i] == leet_chars[j])
+			if (str[a] == r[b] || str[a] - 32 == r[b])
 			{
-				str[i] == leet_nums[j / 2];
-				break;
+				str[a] = n[b];
 			}
+
+			b++;
 		}
+
+		a++;
 	}
+
 	return (str);
 }
