@@ -19,7 +19,7 @@ char *rot13(char *str)
 			int shift = (*p >= 'a' && *p <= 'z') ? 13 : 13;
 			char base = (*p >= 'a' && *p <= 'z') ? 'a' : 'A';
 
-			*p = base + ((*p - base +shift) % 26);
+			*p = base + ((*p - base + shift) % 26);
 		}
 		p++;
 	}
