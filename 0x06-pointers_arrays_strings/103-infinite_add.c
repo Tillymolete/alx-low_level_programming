@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <string.h>
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * infinite_add - This function that adds two numbers
