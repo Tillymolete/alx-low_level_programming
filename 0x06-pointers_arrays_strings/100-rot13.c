@@ -10,18 +10,24 @@
 
 char *rot13(char *str)
 {
-	char *p = str;
+	int a = 0;
 
-	while (*p)
+	while (str[a])
 	{
-		if (isalpha(*p))
+		while ((str[a] >= 'a' && str[a] <= 'z') || (str[a] >= 'A' && str[a] <= 'Z'))
 		{
-			int shift = (*p >= 'a' && *p <= 'z') ? 13 : 13;
-			char base = (*p >= 'a' && *p <= 'z') ? 'a' : 'A';
+			if ((str[a] > 'm' && str[a] <= 'z') || (str[a] > 'M' && str[a] <= 'Z'))
+			{
+				str[a] -= 13;
+				break;
+			}
 
-			*p = base + ((*p - base + shift) % 26);
+			str[a] += 13;
+			break;
 		}
-		p++;
+
+		a++;
 	}
+
 	return (str);
 }
