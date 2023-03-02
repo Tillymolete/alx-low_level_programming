@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <ctype.h>
 
 /**
  * rot13 - this function encodes a string using rot13
@@ -13,19 +14,12 @@ char *rot13(char *str)
 
 	while (*p)
 	{
-		char c = *p;
-
-		if (isalpha(c))
+		if (isalpha(*p))
 		{
-			if (islower(c))
-			{
-				c = 'a' + (c - 'a' + 13) % 26;
-			}
-			else
-			{
-				c = 'A' + (c - 'A' + 13) % 26;
-			}
-			*p = c;
+			int shift = (*p >= 'a' && *p <= 'z') ? 13 : 13;
+			char base = (*p >= 'a' && *p <= 'z') ? 'a' : 'A';
+
+			*p = base + ((*p - base +shift) % 26);
 		}
 		p++;
 	}
