@@ -6,16 +6,26 @@
  * @accept: second pointer
  * Return: the number of bytes in the initial segment
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0;
-	int accept_len = strchr(accept);
+	unsigned int a = 0, b, t = 0;
 
-	while (*s && strchr(accept, *s))
+	while (accept[a])
 	{
-		count++;
-		s++;
+		b = 0;
+
+		while (s[b] != 32)
+		{
+			if (accept[a] == s[b])
+			{
+				t++;
+			}
+
+			b++;
+		}
+
+		a++;
 	}
-	return (count);
+
+	return (t);
 }
