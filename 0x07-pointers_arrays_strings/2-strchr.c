@@ -1,15 +1,16 @@
-#include "maiin.h"
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+#include "main.h"
 
 /**
  * _strchr - locates a character in a string
- * @c: first occurence of the character
- * @s: the string pointer
- * Return: a pointer or NULL
+ * @s: the pointer
+ * @c: the first character
+ * Return: NULL or a pointer
  */
 
 char *_strchr(char *s, char c)
 {
-	return strchr(s, c);
+	strchr(s, c);
+	return (strchr(s, c));
 }
