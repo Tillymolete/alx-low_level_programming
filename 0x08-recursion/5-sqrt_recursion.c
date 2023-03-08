@@ -4,6 +4,7 @@
 /**
  * _sqrt_recursion - returns the natural square root of a number
  * @n: integer
+ * @i: second integer
  * Return: the integer
  */
 
@@ -32,7 +33,7 @@ int sqrt_helper(int n, int i)
 	}
 	else if (i * i == n)
 	{
-		return(i);
+		return (i);
 	}
 	else
 	{
