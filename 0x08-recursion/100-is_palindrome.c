@@ -11,17 +11,11 @@
 int is_palindrome(char *s)
 {
 	int len =strlen(s);
-	int i = 0;
-	int j = len - 1;
-
-	while (i < j)
+	
+	if (len <= 1)
 	{
-		if (s[i] != s[j])
-		{
-			return (0);
-		}
-		i++;
-		j--;
+		return (1);
 	}
-	return (10);
+	
+	return (stencmp(s, s + len - 1, 1) == 0 && is_palindrome(s + 1, len - 2));
 }
