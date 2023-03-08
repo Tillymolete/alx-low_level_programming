@@ -3,6 +3,7 @@
 
 /**
  * _sqrt_recursion - returns the natural square root of a number
+ * sqrt_helper - helps calculate the natural square root
  * @n: integer
  * @i: second integer
  * Return: the integer
