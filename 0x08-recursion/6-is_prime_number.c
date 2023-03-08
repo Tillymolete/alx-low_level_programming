@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <math.h>
 
 /**
  * is_prime_number - returns 1 for integer prime number, otherwise 0
@@ -21,6 +22,7 @@ int is_prime_number(int n)
 	{
 		return (0);
 	}
+
 	int i = 3;
 
 	while (i * i <= n)
