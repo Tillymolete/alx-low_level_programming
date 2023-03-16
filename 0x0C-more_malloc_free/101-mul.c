@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "main.h"
 
+/**
+ * is_digit_string -checks if string only contains digit
+ * @str: the string
+ * Return: an integer
+ */
+
 int is_digit_string(char *str)
 {
 	while (*str)
@@ -14,6 +20,13 @@ int is_digit_string(char *str)
 	}
 	return (1);
 }
+
+/**
+ * multiply - multiplies two positive numbers
+ * @num1: the first number
+ * @num2: the second number
+ * Result: Nothing
+ */
 
 void multiply(char *num1, char *num2)
 {
@@ -54,6 +67,14 @@ void multiply(char *num1, char *num2)
 	printf("\n");
 	free(result);
 }
+
+/**
+ * main - multiplies two positive numbers
+ * @argc: the argument count
+ * @argv: the argument vector
+ * Return: an integer
+ */
+
 int main(int argc, char **argv)
 {
 	if (argc != 3)
