@@ -8,7 +8,8 @@
  * @ptr: the pointer to the memory
  * @old_size: the size of the memory block pointed to by ptr
  * @new_size: the new size of the memory block
- * Return: ptr if new size == old size, NULL if new size is 0 otherwise a pointer
+ * Return: ptr if new size == old size,
+ * NULL if new size is 0 otherwise a pointer
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
