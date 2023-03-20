@@ -10,16 +10,6 @@
  * Return: the new struct dog
  */
 
-typedef struct dog
-	{
-
-		char *name;
-		float age;
-		char *owner;
-	};
-int _strlen(char *str);
-char *strcopy(char *dest, char *src);
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog_ptr;
@@ -27,25 +17,32 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog_ptr = malloc(sizeof(dog_t));
 
 	if (new_dog_ptr == NULL)
-	{
-		return (NULL);
-	}
-
-	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	new_dog_ptr->name = malloc (sizeof(char) * (_strlen(name) + 1));
+	if (name == NULL || age < 0 || owner == NULL)
+		return (NULL);
+
+	new_dog_ptr->name = malloc(sizeof(char) * (_strlen(name) + 1));
 
 	if (new_dog_ptr->name == NULL)
 	{
 		free(new_dog_ptr);
 		return (NULL);
 	}
-	strcopy(new_dog_ptr->name, name);
+	new_dog_ptr->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+
+	if (new_dog_ptr->owner == NULL)
+	{
+		free(new_dog_ptr->name);
+		free(new_dog_ptr);
+		return (NULL);
+	}
+	new_dog_ptr = _strcopy(new_dog_ptr->name, name);
 	new_dog_ptr->age = age;
-	_strcopy(new_dog_ptr->owner, owner);
+	new_dog_ptr = _strcopy(new_dog_ptr->owner, owner);
 
 	return (new_dog_ptr);
+}
 
 /**
  * _strlen - the string length
@@ -53,12 +50,13 @@ dog_t *new_dog(char *name, float age, char *owner)
  * Return: the length of the measured string
  */
 
-_strlen(char *str)
+int _strlen(char *str)
 {
 	int len = 0;
-	
+
 	while (*str++)
 		len++;
+
 	return (len);
 }
 
@@ -72,9 +70,12 @@ _strlen(char *str)
 char *_strcopy(char *dest, char *src)
 {
 	int i = 0;
-	
-	while ((dest[i] = src[i]) != '\0')
-		i++;
+
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+
+	dest[i] = '\0';
+
 	return (dest);
 }
 }
