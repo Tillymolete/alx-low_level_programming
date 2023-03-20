@@ -45,12 +45,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 }
 
 /**
- * _strlen - the string length
+ * my_strlen - the string length
  * @str: the measured string
  * Return: the length of the measured string
  */
 
-int _strlen(char *str)
+int my_strlen(char *str)
 {
 	int len = 0;
 
@@ -61,13 +61,13 @@ int _strlen(char *str)
 }
 
 /**
- * _strcpy - copies the string from source
+ * my_strcpy - copies the string from source
  * @src: the source string
  * @dest: the destination of the buffer sorting string
  * Return: the pointer destination
  */
 
-char *_strcpy(char *dest, char *src)
+char *my_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
