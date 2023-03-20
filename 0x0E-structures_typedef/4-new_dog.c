@@ -45,12 +45,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 }
 
 /**
- * my_strlen - the string length
+ * _strlen - the string length
  * @str: the measured string
  * Return: the length of the measured string
  */
 
-int my_strlen(char *str)
+int _strlen(char *str)
 {
 	int len = 0;
 
