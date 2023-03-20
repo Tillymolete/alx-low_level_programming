@@ -22,14 +22,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
 
-	new_dog_ptr->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	new_dog_ptr->name = malloc(sizeof(char) * (strlen(name) + 1));
 
 	if (new_dog_ptr->name == NULL)
 	{
 		free(new_dog_ptr);
 		return (NULL);
 	}
-	new_dog_ptr->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	new_dog_ptr->owner = malloc(sizeof(char) * (strlen(owner) + 1));
 
 	if (new_dog_ptr->owner == NULL)
 	{
@@ -37,9 +37,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog_ptr);
 		return (NULL);
 	}
-	new_dog_ptr = _strcopy(new_dog_ptr->name, name);
+	strcpy(new_dog_ptr->name, name);
 	new_dog_ptr->age = age;
-	new_dog_ptr = _strcopy(new_dog_ptr->owner, owner);
+	strcpy(new_dog_ptr->owner, owner);
 
 	return (new_dog_ptr);
 }
@@ -50,7 +50,7 @@ dog_t *new_dog(char *name, float age, char *owner)
  * Return: the length of the measured string
  */
 
-int _strlen(char *str)
+int strlen(char *str)
 {
 	int len = 0;
 
@@ -61,13 +61,13 @@ int _strlen(char *str)
 }
 
 /**
- * _strcopy - copies the string from source
+ * _strcpy - copies the string from source
  * @src: the source string
  * @dest: the destination of the buffer sorting string
  * Return: the pointer destination
  */
 
-char *_strcopy(char *dest, char *src)
+char *strcpy(char *dest, char *src)
 {
 	int i = 0;
 
@@ -77,5 +77,4 @@ char *_strcopy(char *dest, char *src)
 	dest[i] = '\0';
 
 	return (dest);
-}
 }
