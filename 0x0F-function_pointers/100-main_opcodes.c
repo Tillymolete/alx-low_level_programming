@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	char *opcodes = char (*) main;
+	char *opcodes = (char *) main;
 	int i, num_bytes;
 
 	if (argc != 2)
