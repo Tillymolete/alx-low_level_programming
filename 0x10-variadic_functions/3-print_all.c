@@ -44,6 +44,7 @@ printf("%d", i);
 break;
 case 'f':
 f = (float) va_arg(args, double);
+printf("%f", f);
 break;
 case 's':
 str = va_arg(args, char *);
@@ -54,7 +55,7 @@ printf("(nil)");
 }
 else
 {
-print("%s", str);
+printf("%s", str);
 }
 break;
 default:
