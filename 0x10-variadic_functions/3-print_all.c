@@ -35,23 +35,23 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(args, int));
+				printf("%c", va_arg(args, int)), c = 1;
 				break;
 			case 'i':
-				printf("%d", va_arg(args, int));
+				printf("%d", va_arg(args, int)), c = 1;
 				break;
 			case 'f':
-				printf("%f", va_arg(args, double));
+				printf("%f", va_arg(args, double)), c = 1;
 				break;
 			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
 				{
-					printf("(nil)");
+					printf("(nil)"), c = 1;
 				}
 				else
 				{
-					printf("%s", str);
+					printf("%s", str), c = 1;
 				}
 				break;
 			default:
