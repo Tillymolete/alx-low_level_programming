@@ -13,7 +13,7 @@ void free_listint(listint_t *head)
 
 	while (head != NULL)
 	{
-		cureent = head;
+		current = head;
 		head = head->next;
 		free(current);
 	}
