@@ -6,7 +6,7 @@ size_t free_listint_safe(listint_t **h);
 /**
  * looped_listint_count - count the number of nodes in the looped list
  * @head: a pointer to the head of the listint_t
- * @Return: 0 if list is not looped, otherwise the number of nodes
+ * Return: 0 if list is not looped, otherwise the size of nodes in the list
  */
 
 size_t looped_listint_count(listint_t *head)
@@ -60,7 +60,7 @@ size_t free_listint_safe(listint_t **h)
 
 	if (size == 0)
 	{
-		for(; h != NULL && *h != NULL; size++)
+		for (; h != NULL && *h != NULL; size++)
 		{
 			tmp = (*h)->next;
 			free(*h);
