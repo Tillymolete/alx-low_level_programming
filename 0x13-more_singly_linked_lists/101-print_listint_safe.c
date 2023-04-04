@@ -23,16 +23,16 @@ size_t print_listint_safe(const listint_t *head)
 
 		if (hare == tortoise)
 		{
-			printf("-> [%p] %d\n", (void *) hare, hare->n);
+			printf("-> [%p] %d\n", (void *)hare, hare->n);
 			break;
 		}
-		printf("[%p] %d\n", (void *) tortoise, tortoise->n);
+		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 	}
 	if (hare == NULL || hare->next == NULL)
 	{
 		while (head != NULL)
 		{
-			printf("[%p] %d\n", (void *) head, head->n);
+			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 			count++;
 		}
@@ -41,25 +41,22 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		count = 1;
 		hare = hare->next;
-		
+
 		while (tortoise != hare)
 		{
-			printf("[%p] %d\n", (void *) tortoise, tortoise->n);
+			printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 			tortoise = tortoise->next;
 			hare = hare->next;
 			count++;
 		}
-		printf("-> [%p] %d\n", (void *) tortoise, tortoise->n);
+		printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
 
 		hare = tortoise->next;
 		while (tortoise != hare)
-		{
-			printf("[%p] %d\n", (void *) tortoise, tortoise->n);
+			printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 			tortoise = tortoise->next;
 			count++;
-		}
-		printf("Loop starts at [%p] %d\n", (void *) tortoise, tortoise->n);
+		printf("Loop starts at [%p] %d\n", (void *)tortoise, tortoise->n);
 	}
 	return (count);
 }
-		
