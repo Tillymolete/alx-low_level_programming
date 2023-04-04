@@ -53,9 +53,11 @@ size_t print_listint_safe(const listint_t *head)
 
 		hare = tortoise->next;
 		while (tortoise != hare)
+		{
 			printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 			tortoise = tortoise->next;
 			count++;
+		}
 		printf("Loop starts at [%p] %d\n", (void *)tortoise, tortoise->n);
 	}
 	return (count);
