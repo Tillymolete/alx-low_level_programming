@@ -10,7 +10,7 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *tortoise, *hare;
 
-	if (hare == NULL || head->next ==NULL)
+	if (head == NULL || head->next ==NULL)
 		return (NULL);
 
 	tortoise = head->next;
