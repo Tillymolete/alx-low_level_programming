@@ -57,7 +57,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 	size_t count, index = 0;
 
-	count = looped_linkedint_len(head);
+	count = looped_listint_len(head);
 
 	if (count == 0)
 	{
