@@ -6,12 +6,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define File_PERMISSIONS S_IRUSR | S_IWUSR
+#define(File_PERMISSIONS S_IRUSR | S_IWUSR)
 
 /**
  * create_file - creates a file.
- * filename: a string that specifies name of created file
- * text_content: a string that contains the content written
+ * @filename: a string that specifies name of created file
+ * @text_content: a string that contains the content written
  * Return: 1 on success, -1 on failure
  */
 
