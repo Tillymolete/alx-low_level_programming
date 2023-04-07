@@ -26,7 +26,7 @@ void error_exit(const char *msg, const char *arg, int code)
  * Return: 0
  */
 
-int man(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, n;
 	char buf[BUFSIZE];
@@ -40,7 +40,7 @@ int man(int argc, char *argv[])
 
 	if (fd_from == -1)
 	{
-		error_exit("Error: Can't read from file %d\n", argv[1]);
+		error_exit("Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -50,7 +50,7 @@ int man(int argc, char *argv[])
 		error_exit("Error: Can't write to %s\n", argv[2]);
 		exit (99);
 	}
-	while ((n = read(fd_from, buf, BUFSize)) > 0)
+	while ((n = read(fd_from, buf, BUFSIZE)) > 0)
 	{
 		if (write(fd_to, buf, n) != n)
 		{
