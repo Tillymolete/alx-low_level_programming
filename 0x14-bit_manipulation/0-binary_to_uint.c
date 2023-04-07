@@ -10,13 +10,14 @@
 
 unsigned int binary_to_uint(const char *b)
 {
+	size_t i;
 	unsigned int num = 0;
 
 	if (b == NULL)
 	{
 		return (0);
 	}
-	for (size_t i = 0; b[i] != '\0'; i++)
+	for (i = 0; b[i] != '\0'; i++)
 	{
 		if (!isdigit(b[i]))
 		{
