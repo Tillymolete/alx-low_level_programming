@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-#include <fcnt1.h>
+#include <fcntl.h>
 #include <unistd.h>
 
 #define File_PERMISSIONS S_IRUSR | S_IWUSR
