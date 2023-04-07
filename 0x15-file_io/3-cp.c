@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 #include <stdlib.h>
-#include <fcnt1.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
 
