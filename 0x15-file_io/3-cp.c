@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <errno.h>
 
+#define BUFSIZE 1024
 /**
  * error_file - checks if files can be opened.
  * @file_from: file that contains content.
@@ -13,7 +14,7 @@
  * Return: Nothing
  */
 
-void error_exit(const char *msg, const char *arg, int code)
+void error_exit(const char *msg, char *arg, int code)
 {
 	dprintf(STDERR_FILENO, msg, arg);
 	exit(code);
@@ -33,45 +34,38 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		error_exit("Usage: cp file_from file_to\n", "");
-		exit(97);
+		error_exit("Usage: cp file_from file_to\n", "", 97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
 
 	if (fd_from == -1)
 	{
-		error_exit("Error: Can't read from file %s\n", argv[1]);
-		exit(98);
+		error_exit("Error: Can't read from file %s\n", argv[1], 98);
 	}
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
 	if (fd_to == -1)
 	{
-		error_exit("Error: Can't write to %s\n", argv[2]);
-		exit (99);
+		error_exit("Error: Can't write to %s\n", argv[2], 99);
 	}
 	while ((n = read(fd_from, buf, BUFSIZE)) > 0)
 	{
 		if (write(fd_to, buf, n) != n)
 		{
-			error_exit("Error: Can't write to %s\n", argv[2]);
-			exit(99);
+			error_exit("Error: Can't write to %s\n", argv[2], 99);
 		}
 	}
 	if (n == -1)
 	{
-		error_exit("Error: Can't read from file %s\n", argv[1]);
-		exit(98);
+		error_exit("Error: Can't read from file %s\n", argv[1], 98);
 	}
 	if (close(fd_from) == -1)
 	{
-		error_exit("Error: Can't close fd %d\n", fd_from);
-		exit(100);
+		error_exit("Error: Can't close fd %d\n", buf, 100);
 	}
 	if (close(fd_to) == -1)
 	{
-		error_exit("Error: Can't close fd %d\n", fd_to);
-		exit(100);
+		error_exit("Error: Can't close fd %d\n", buf, 100);
 	}
 	return (0);
 }
