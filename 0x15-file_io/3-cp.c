@@ -7,10 +7,10 @@
 
 #define BUFSIZE 1024
 /**
- * error_file - checks if files can be opened.
- * @file_from: file that contains content.
- * @file_to: file to copy file into.
- * @argv: the agrument vector.
+ * error_exit - checks if files can be opened.
+ * @msg: file that contains error content.
+ * @arg: string that contains additional arguments.
+ * @code: integer representing the error code.
  * Return: Nothing
  */
 
