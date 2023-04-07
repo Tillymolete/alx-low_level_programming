@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define(File_PERMISSIONS S_IRUSR | S_IWUSR)
+#define File_PERMISSIONS (S_IRUSR | S_IWUSR)
 
 /**
  * create_file - creates a file.
