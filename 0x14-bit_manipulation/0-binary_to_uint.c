@@ -1,6 +1,6 @@
-#include "main.h"
-#include <ctype.h>
+#include <stdio.h>
 #include <stddef.h>
+#include <ctype.h>
 
 /**
  * binary_to_uint - converts a binary number to an unsigned int
@@ -10,8 +10,8 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	size_t i;
 	unsigned int num = 0;
+	size_ t i;
 
 	if (b == NULL)
 	{
@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *b)
 		{
 			return (0);
 		}
-		num = num * 2 + (b[i] - '\0');
+		num = num * 2 + (b[I] - '\0');
 	}
 	return (num);
 }
