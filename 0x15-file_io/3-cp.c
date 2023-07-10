@@ -14,7 +14,7 @@
  * Return: no return
  */
 
-viod error_exit(const char *msg, const char *arg, int code)
+void error_exit(const char *msg, int arg, int code)
 {
 	dprintf(STDERR_FILENO, msg, arg);
 	exit(code);
@@ -34,33 +34,33 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		error_exit("Usage: cp file_from file_to\n", NULL, 97);
+		error_exit("Usage: cp file_from file_to\n", 0, 97);
 	}
 
-	fd_from = open(argv[1], ORDONLY);
+	fd_from = open(argv[1], O_RDONLY);
 
 	if (fd_from == -1)
 	{
-		error_exit("Error: Can't read to %s\n", argv[1], 98);
+		error_exit("Error: Can't read from %s\n", fd_from, 98);
 	}
 
-	fd_to = open(argv[2], O_WRONLY |O_CREAT | O_TRUNC, 0644);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd_to == -1)
 	{
-		error_exit("Error: Can't write to %s\n", argv[2], 99);
+		error_exit("Error: Can't write to %s\n", fd_to, 99);
 	}
 
-	while ((n = read(fd_from, buf, BUFSIZE)) > 0)
+	while ((n = read(fd_from, buf, BUFSIZE)) >= 0)
 	{
 		if (write(fd_to, buf, n) != n)
 		{
-			error_exit("Error: Can't write %s\n", argv[2], 99);
+			error_exit("Error: Can't write to %s\n", fd_to, 99);
 		}
 	}
 
 	if (n == -1)
 	{
-		error_exit("Error: Can't read from file %s\n", argv[1], 98);
+		error_exit("Error: Can't read from file %s\n", fd_from, 98);
 	}
 
 	if (close(fd_from) == -1)
