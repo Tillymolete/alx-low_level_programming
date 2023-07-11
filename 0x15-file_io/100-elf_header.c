@@ -58,14 +58,21 @@ void print_elf_header(const Elf64_Ehdr *header)
 
 int main(int argc, char *argv[])
 {
+	const char *filename;
+	int fd;
+	struct stat;
+	off_t file_size;
+	ssize_t bytes_read;
+	Elf64_Ehdr header;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
 		return (1);
 	}
 
-	const char *filename = argv[1];
-	int fd = open(filename, O_RDONLY);
+	filename = argv[1];
+	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
 	{
@@ -73,24 +80,22 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	struct stat st;
-	if (fstat(fd, &st) == - 1)
+	if (fstat(fd, &stat) == -1)
 	{
 		fprintf(stderr, "Error getting file size: %s\n", strerror(errno));
 		close(fd);
 		return (98);
 	}
 
-	off_t file_size = st.st_size;
+	file_size = stat.st_size;
 	if (file_size < sizeof(Elf64_Ehdr))
 	{
 		fprintf(stderr, "Error: File is not an ELF file\n");
 		close(fd);
 		return (98);
 	}
-	Elf64_Ehdr header;
-
-	ssize_t bytes_read = read(fd, &header, sizeof(Elf64_Ehdr));
+	
+	bytes_read = read(fd, &header, sizeof(Elf64_Ehdr));
 	if (bytes_read != sizeof(Elf64_Ehdr))
 	{
 		fprintf(stderr, "Error reading ELF header: %s\n", strerror(errno));
