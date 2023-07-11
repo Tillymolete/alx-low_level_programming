@@ -39,7 +39,7 @@ typedef struct {
 
 void print_elf_header(const Elf64_Ehdr *header)
 {
-	printf("Magic: %c%c%c\n", header->magic[0]0, header->magic[1], header->magic[2]);
+	printf("Magic: %c%c%c\n", header->magic[0], header->magic[1], header->magic[2]);
 	printf("Class: %d-bit\n", (header->class == 1) ? 32 : 64);
 	printf("Data: %s\n", (header->data == 1) ? "Little Endian" : "Big Endian");
 	printf("Version: %d\n", header->version);
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
 	if (fd == -1)
 	{
-		fprintf(stderr, "Error opeing file: %s\n", strerror(errno));
+		fprintf(stderr, "Error opening file: %s\n", strerror(errno));
 		return (98);
 	}
 
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 		close(fd);
 		return (98);
 	}
-	print-elf_header(&header);
+	print_elf_header(&header);
 	close(fd);
 	return (0);
 }
